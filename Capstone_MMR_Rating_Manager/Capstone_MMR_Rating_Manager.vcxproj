@@ -186,6 +186,7 @@
     <ClInclude Include="Capstone_MMR_Rating_Manager.h" />
     <ClInclude Include="Capstone_MMR_Rating_ManagerDlg.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="IOFramework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
