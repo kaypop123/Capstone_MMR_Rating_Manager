@@ -5,5 +5,6 @@
 
 class CSVReader {
 public:
-	std::vector<std::vector<std::string>> CSVRead();
+	std::vector<std::vector<std::string>> CSVRead(std::string filePath);
 };
+
