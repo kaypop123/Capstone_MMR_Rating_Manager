@@ -45,17 +45,24 @@ BOOL CCapstoneMMRRatingManagerApp::InitInstance()
 {
 	// 디버깅 테스트
 	AllocConsole(); // 콘솔 창 생성
-	//SetConsoleOutputCP(CP_UTF8);  // 콘솔 출력 인코딩을 UTF-8로 설정
 
 	FILE* fp;
 	freopen_s(&fp, "CONOUT$", "w", stdout);
 	freopen_s(&fp, "CONOUT$", "w", stderr);
 	freopen_s(&fp, "CONIN$", "r", stdin);  // 필요시
 
-	std::cout << "CSV 읽기 테스트!" << std::endl;
+	std::cout << "테스트" << std::endl;
 
-	CSVReader reader;  // CSV 파일 경로 지정
-	std::vector<std::vector<std::string>> records = reader.CSVRead("../trashData.csv");
+	std::vector<std::vector<std::string>> records = CSVReader::CSVRead("../trashData.csv");
+
+	/*for (const auto& row : records) {
+		for (const auto& cell : row) {
+			std::cout << cell << "\t";
+		}
+		std::cout << std::endl;
+	}*/
+
+	std::vector<std::vector<float>> records2 = CSVReader::CSVRead_float("../trashData.csv");
 
 	for (const auto& row : records) {
 		for (const auto& cell : row) {
@@ -63,7 +70,6 @@ BOOL CCapstoneMMRRatingManagerApp::InitInstance()
 		}
 		std::cout << std::endl;
 	}
-
 
 
 	// Windows XP에서는 InitCommonControlsEx()를 필요로 합니다.
