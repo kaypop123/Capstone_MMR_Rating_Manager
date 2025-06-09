@@ -8,6 +8,7 @@
 #include "Capstone_MMR_Rating_ManagerDlg.h"
 #include <iostream>
 #include "IOFramework.h"
+#include <windows.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -44,6 +45,7 @@ BOOL CCapstoneMMRRatingManagerApp::InitInstance()
 {
 	// 디버깅 테스트
 	AllocConsole(); // 콘솔 창 생성
+	//SetConsoleOutputCP(CP_UTF8);  // 콘솔 출력 인코딩을 UTF-8로 설정
 
 	FILE* fp;
 	freopen_s(&fp, "CONOUT$", "w", stdout);
@@ -57,7 +59,7 @@ BOOL CCapstoneMMRRatingManagerApp::InitInstance()
 
 	for (const auto& row : records) {
 		for (const auto& cell : row) {
-			std::cout << cell << " ";
+			std::cout << cell << "\t";
 		}
 		std::cout << std::endl;
 	}
