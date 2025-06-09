@@ -53,7 +53,7 @@ BOOL CCapstoneMMRRatingManagerApp::InitInstance()
 	std::cout << "CSV 읽기 테스트!" << std::endl;
 
 	CSVReader reader;  // CSV 파일 경로 지정
-	std::vector<std::vector<std::string>> records = reader.CSVRead("./trashData.csv");
+	std::vector<std::vector<std::string>> records = reader.CSVRead("../trashData.csv");
 
 	for (const auto& row : records) {
 		for (const auto& cell : row) {
