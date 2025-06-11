@@ -51,20 +51,23 @@ BOOL CCapstoneMMRRatingManagerApp::InitInstance()
 	freopen_s(&fp, "CONOUT$", "w", stderr);
 	freopen_s(&fp, "CONIN$", "r", stdin);  // 필요시
 
-	std::cout << "테스트" << std::endl;
+	std::cout << "테스트 Console" << std::endl << std::endl;
 
 	std::vector<std::vector<std::string>> records = CSVReader::CSVRead("../trashData.csv");
 
-	/*for (const auto& row : records) {
+	std::cout << "CSVRead 작동 확인:" << std::endl;
+	for (const auto& row : records) {
 		for (const auto& cell : row) {
-			std::cout << cell << "\t";
+			std::cout << cell << "\t\t";
 		}
 		std::cout << std::endl;
-	}*/
+	}
+	std::cout << std::endl;
 
 	std::vector<std::vector<float>> records2 = CSVReader::CSVRead_float("../trashData.csv");
 
-	for (const auto& row : records) {
+	std::cout << "CSVRead_float 작동 확인:" << std::endl;
+	for (const auto& row : records2) {
 		for (const auto& cell : row) {
 			std::cout << cell << "\t";
 		}

@@ -55,6 +55,10 @@ std::vector<std::vector<float>> CSVReader::CSVRead_float(std::string filePath) {
                 continue;
             }
         }
+
+        if (row.size() == 0) {
+            continue;
+        }
         data.push_back(row);
     }
 
