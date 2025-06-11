@@ -6,6 +6,9 @@
 #include "framework.h"
 #include "Capstone_MMR_Rating_Manager.h"
 #include "Capstone_MMR_Rating_ManagerDlg.h"
+#include <iostream>
+#include "IOFramework.h"
+#include <windows.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -40,6 +43,38 @@ CCapstoneMMRRatingManagerApp theApp;
 
 BOOL CCapstoneMMRRatingManagerApp::InitInstance()
 {
+	// 디버깅 테스트
+	AllocConsole(); // 콘솔 창 생성
+
+	FILE* fp;
+	freopen_s(&fp, "CONOUT$", "w", stdout);
+	freopen_s(&fp, "CONOUT$", "w", stderr);
+	freopen_s(&fp, "CONIN$", "r", stdin);  // 필요시
+
+	std::cout << "테스트 Console" << std::endl << std::endl;
+
+	std::vector<std::vector<std::string>> records = CSVReader::CSVRead("../trashData.csv");
+
+	std::cout << "CSVRead 작동 확인:" << std::endl;
+	for (const auto& row : records) {
+		for (const auto& cell : row) {
+			std::cout << cell << "\t\t";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::vector<std::vector<float>> records2 = CSVReader::CSVRead_float("../trashData.csv");
+
+	std::cout << "CSVRead_float 작동 확인:" << std::endl;
+	for (const auto& row : records2) {
+		for (const auto& cell : row) {
+			std::cout << cell << "\t";
+		}
+		std::cout << std::endl;
+	}
+
+
 	// Windows XP에서는 InitCommonControlsEx()를 필요로 합니다.
 	// 사용하도록 지정하는 경우, Windows XP 상에서 반드시 InitCommonControlsEx()가 필요합니다.
 	// InitCommonControlsEx()를 사용하지 않으면 창을 만들 수 없습니다.
@@ -103,5 +138,11 @@ BOOL CCapstoneMMRRatingManagerApp::InitInstance()
 	// 대화 상자가 닫혔으므로 응용 프로그램의 메시지 펌프를 시작하지 않고 응용 프로그램을 끝낼 수 있도록 FALSE를
 	// 반환합니다.
 	return FALSE;
+
+
+	
+
+
 }
+
 
